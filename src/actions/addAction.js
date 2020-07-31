@@ -6,3 +6,10 @@ export const addNewFeatures = add => {
       payload: add
     }
   }
+
+export const removeFeatures = remove => {
+  return {
+    type: 'REMOVE_FEATURE',
+    payload: remove
+    }
+  }

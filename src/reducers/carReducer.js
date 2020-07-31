@@ -21,12 +21,13 @@ export const carReducer = (state = initialState, action) => {
       case 'ADD_FEATURE': {
         return {
           ...state,
-            car: {
-              ...state.car,
-              price: state.car.price + action.payload.price,
-              features: [
-                ...state.car.features, action.payload
-              ]
+          addlPrice: state.addlPrice + action.payload.price,
+          car: {
+            ...state.car,
+            price: state.car.price + action.payload.price,
+            features: [
+              ...state.car.features, action.payload
+            ]
           }
         }
       }
@@ -34,9 +35,10 @@ export const carReducer = (state = initialState, action) => {
       case 'REMOVE_FEATURE': {
         return {
           ...state,
-          price: state.car.price - action.payload.price,
+          addlPrice: state.addlPrice - action.payload.price,
           car: {
             ...state.car,
+            price: state.car.price - action.payload.price,
             features: [
               ...state.car.features.filter(item => item.id !== action.payload.id)
             ]
